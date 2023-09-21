@@ -46,7 +46,7 @@ class RRHE {
 	 * @access public
 	 */
 	public function __construct() {
-		add_action( 'admin_init', [ &$this, 'admin_init' ] );
+		add_action( 'admin_init', [ $this, 'admin_init' ] );
 	}
 
 	/**
