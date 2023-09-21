@@ -1,9 +1,9 @@
 === Recently Registered ===
 Tags: users, recent, new, buddypress, multisite
-Contributors: Ipstenu
+Contributors: Ipstenu, kaggdesign
 Requires at least: 4.0
-Tested up to: 6.1
-Stable Tag: 3.5
+Tested up to: 6.3
+Stable Tag: 3.6
 Donate link: https://ko-fi.com/A236CEN/
 
 Add a sortable column to the users list to show registration date.
@@ -64,6 +64,10 @@ Because it was redundant.  If you can sort it all on one page, why not do that?
 1. Sample output
 
 == Changelog ==
+
+= 3.6 =
+* WPCS
+* PHP 7.4
 
 = 3.5 =
 * 11 May 2022 by Ipstenu
