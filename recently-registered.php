@@ -56,14 +56,12 @@ class RRHE {
 	 * @access public
 	 */
 	public function admin_init(): void {
-		if ( is_admin() ) {
-			add_filter( 'manage_users_columns', [ $this, 'users_columns' ] );
-			add_action( 'manage_users_custom_column', [ $this, 'users_custom_column' ], 10, 3 );
-			add_filter( 'manage_users_sortable_columns', [ $this, 'users_sortable_columns' ] );
-			add_filter( 'request', [ $this, 'users_orderby_column' ] );
-			add_action( 'plugins_loaded', [ $this, 'load_this_textdomain' ] );
-			add_filter( 'plugin_row_meta', [ $this, 'donate_link' ], 10, 2 );
-		}
+		add_filter( 'manage_users_columns', [ $this, 'users_columns' ] );
+		add_action( 'manage_users_custom_column', [ $this, 'users_custom_column' ], 10, 3 );
+		add_filter( 'manage_users_sortable_columns', [ $this, 'users_sortable_columns' ] );
+		add_filter( 'request', [ $this, 'users_orderby_column' ] );
+		add_action( 'plugins_loaded', [ $this, 'load_this_textdomain' ] );
+		add_filter( 'plugin_row_meta', [ $this, 'donate_link' ], 10, 2 );
 	}
 
 	/**
@@ -131,7 +129,7 @@ class RRHE {
 	 *
 	 * @param array $columns Columns.
 	 */
-	public static function users_sortable_columns( array $columns ): array {
+	public function users_sortable_columns( array $columns ): array {
 		$custom = [
 			// Meta column id => orderby value used in query.
 			'registerdate' => 'registered',
@@ -148,7 +146,7 @@ class RRHE {
 	 *
 	 * @param array $vars Sort parameters.
 	 */
-	public static function users_orderby_column( array $vars ): array {
+	public function users_orderby_column( array $vars ): array {
 		if ( isset( $vars['orderby'] ) && 'registerdate' === $vars['orderby'] ) {
 			$new_vars = [
 				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
